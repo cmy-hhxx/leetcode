@@ -1,0 +1,63 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C++: 编译当前文件 (调试)",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-std=c++14",
+                "-g",
+                "-O0",
+                "-Wall",
+                "-Wextra",
+                "-I${workspaceFolder}/include",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}_debug"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "用于调试的编译任务，包含调试符号和头文件路径。"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C++: 编译当前文件 (发布)",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-std=c++14",
+                "-O2",
+                "-Wall",
+                "-Wextra",
+                "-I${workspaceFolder}/include",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "用于发布的编译任务，优化性能。"
+        },
+        {
+            "type": "shell",
+            "label": "运行当前程序",
+            "command": "${fileDirname}/${fileBasenameNoExtension}_debug",
+            "group": "test",
+            "dependsOn": "C++: 编译当前文件 (调试)",
+            "detail": "编译并运行当前程序。"
+        }
+    ],
+    "version": "2.0.0"
+}
