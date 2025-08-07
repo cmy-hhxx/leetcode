@@ -1,4 +1,5 @@
 # 力扣刷题记录
+# If you have any questions, Contact us via [mingyangcheng@stu.hznu.edu.cn](mailto:mingyangcheng@stu.hznu.edu.cn).
 
 ## 哈希表
 
